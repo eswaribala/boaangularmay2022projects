@@ -9,11 +9,18 @@ namespace CustomerAPI.Models
     {
         [Column("First_Name")]
         [Required]
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
         [Column("Last_Name")]
-        [Required]
-        public string? LastName { get; set; }
+          [Required]
+        public string LastName { get; set; }
         [Column("Middle_Name")]
-        public string? MiddleName { get; set; }
+        public string MiddleName { get; set; }
+
+        public FullName(string firstName, string lastName, string middleName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            MiddleName = middleName;
+        }
     }
 }
