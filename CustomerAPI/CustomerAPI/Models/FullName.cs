@@ -1,11 +1,19 @@
-﻿namespace CustomerAPI.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CustomerAPI.Models
 {
-    
+    [Owned]
     public class FullName
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        
-        public string MiddleName { get; set; }
+        [Column("First_Name")]
+        [Required]
+        public string? FirstName { get; set; }
+        [Column("Last_Name")]
+        [Required]
+        public string? LastName { get; set; }
+        [Column("Middle_Name")]
+        public string? MiddleName { get; set; }
     }
 }
