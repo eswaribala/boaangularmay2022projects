@@ -2,6 +2,7 @@
 using CustomerAPI.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Transactions;
 
 namespace CustomerAPI.Controllers
 {
@@ -44,5 +45,33 @@ namespace CustomerAPI.Controllers
                  new { id = customer.CustomerId }, customer);
 
         }
+
+        // PUT api/<SupplierController>/5
+        [HttpPut()]
+        public IActionResult Put([FromBody] Customer customer)
+        {
+            if (customer != null)
+            {
+                using (var scope = new TransactionScope())
+                {
+                    _customerRepository.UpdateCustomer(customer);
+                    scope.Complete();
+                   
+                    return new OkResult();
+                }
+            }
+            return new NoContentResult();
+        }
+
+        // DELETE api/<SupplierController>/5
+        [HttpDelete("{CustomerId}")]
+        public IActionResult Delete(long CustomerId)
+        {
+            if(_customerRepository.DeleteCustomerById(CustomerId))
+               return new OkResult();
+            else
+                return new NoContentResult();
+        }
+
     }
 }

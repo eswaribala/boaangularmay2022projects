@@ -13,11 +13,14 @@ namespace CustomerAPI.Repositories
             _dbContext = dbContext;
         }
 
-        public  Customer AddCustomer(Customer customer)
+        public Customer AddCustomer(Customer customer)
         {
-          var result=  this._dbContext.Customers.Add(customer);
-             _dbContext.SaveChanges();
-            return customer;
+         // var _transaction = _dbContext.Database.BeginTransactionAsync();
+          var result= this._dbContext.Customers.Add(customer);
+          _dbContext.SaveChanges();
+         // await  _transaction.CommitAsync();
+
+            return result.Entity;
 
         }
 
