@@ -1,32 +1,72 @@
-﻿using CustomerAPI.Models;
+﻿using CustomerAPI.Contexts;
+using CustomerAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CustomerAPI.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public Task<Customer> AddCustomer()
+        private readonly CustomerContext _dbContext;
+
+        public CustomerRepository(CustomerContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
         }
 
-        public Task<bool> DeleteCustomer()
+        public async Task<Customer> AddCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+          var result=await  this._dbContext.Customers.AddAsync(customer);
+            await _dbContext.SaveChangesAsync();
+            return result.Entity;
+
         }
 
-        public Task<IEnumerable<Customer>> GetAllCustomers()
+        public async Task<bool> DeleteCustomerById(long CustomerId)
         {
-            throw new NotImplementedException();
+            var result = _dbContext.Customers
+             .FirstOrDefault(c => c.CustomerId == CustomerId);
+            if (result != null)
+            {
+                _dbContext.Customers.Remove(result);
+                _dbContext.SaveChanges();
+            }
+
+            if (await GetCustomerById(CustomerId) == null)
+                return true;
+            return false;
         }
 
-        public Task<Customer> GetCustomerById(long CustomerId)
+        public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Customers.ToListAsync();
         }
 
-        public Task<Customer> UpdateCustomer(Customer customer)
+        public async Task<Customer> GetCustomerById(long CustomerId)
         {
-            throw new NotImplementedException();
+            var result = await _dbContext.Customers
+             .FirstOrDefaultAsync(c => c.CustomerId == CustomerId);
+            if (result != null)
+                return result;
+            return null;
+        }
+
+        public async Task<Customer> UpdateCustomer(Customer customer)
+        {
+            var result = await _dbContext.Customers
+                 .FirstOrDefaultAsync(c => c.CustomerId == customer.CustomerId);
+
+            if (result != null)
+            {
+                result.Country = customer.Country;
+
+
+
+                await _dbContext.SaveChangesAsync();
+
+                return result;
+            }
+
+            return null;
         }
     }
 }
