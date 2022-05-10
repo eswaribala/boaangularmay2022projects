@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Local disk\\boadotnetmay2022\\CustomerAPI\\CustomerAPI\\CustomerAPI.csproj": {}
+    "G:\\Local disk\\dotnetmsmar2022\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0.csproj": {}
   },
   "projects": {
-    "G:\\Local disk\\boadotnetmay2022\\CustomerAPI\\CustomerAPI\\CustomerAPI.csproj": {
+    "G:\\Local disk\\dotnetmsmar2022\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Local disk\\boadotnetmay2022\\CustomerAPI\\CustomerAPI\\CustomerAPI.csproj",
-        "projectName": "CustomerAPI",
-        "projectPath": "G:\\Local disk\\boadotnetmay2022\\CustomerAPI\\CustomerAPI\\CustomerAPI.csproj",
+        "projectUniqueName": "G:\\Local disk\\dotnetmsmar2022\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0.csproj",
+        "projectName": "JWTAuthentication.NET6.0",
+        "projectPath": "G:\\Local disk\\dotnetmsmar2022\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0.csproj",
         "packagesPath": "C:\\Users\\Balasubramaniam\\.nuget\\packages\\",
-        "outputPath": "G:\\Local disk\\boadotnetmay2022\\CustomerAPI\\CustomerAPI\\obj\\",
+        "outputPath": "G:\\Local disk\\dotnetmsmar2022\\JWTAuthentication.NET6.0\\JWTAuthentication.NET6.0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -50,35 +50,21 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[6.0.1, )"
             },
-            "Microsoft.AspNetCore.Mvc.Versioning": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[6.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[6.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.4, )"
-            },
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
-              "target": "Package",
-              "version": "[1.14.0, )"
+              "version": "[6.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
