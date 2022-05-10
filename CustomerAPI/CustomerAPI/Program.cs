@@ -13,6 +13,7 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
 builder.Services.AddDbContext<CustomerContext>(o => o.UseSqlServer
 (builder.Configuration.GetConnectionString("CustomerDBConn")));
 
