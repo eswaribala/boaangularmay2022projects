@@ -14,6 +14,9 @@ namespace CustomerAPI.Models
         public FullName Name { get; set; }
         [Column("Country")]
         public string? Country { get; set; }
+       
+        [Column("Email")]
+        public string? Email { get; set; }
 
         
     }

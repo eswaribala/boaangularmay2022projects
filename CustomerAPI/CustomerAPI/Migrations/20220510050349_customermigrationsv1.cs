@@ -4,7 +4,7 @@
 
 namespace CustomerAPI.Migrations
 {
-    public partial class customermigration : Migration
+    public partial class customermigrationsv1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,7 @@ namespace CustomerAPI.Migrations
                     First_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Last_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Middle_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,38 +30,27 @@ namespace CustomerAPI.Migrations
                 {
                     Address_Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Door_No = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    State = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Door_No = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Zip_Code = table.Column<long>(type: "bigint", nullable: false),
-                    CustomerId = table.Column<long>(type: "bigint", nullable: false),
-                    CustomerId1 = table.Column<long>(type: "bigint", nullable: true)
+                    Customer_Id = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Address", x => x.Address_Id);
                     table.ForeignKey(
-                        name: "FK_Address_Customer_CustomerId",
-                        column: x => x.CustomerId,
+                        name: "FK_Address_Customer_Customer_Id",
+                        column: x => x.Customer_Id,
                         principalTable: "Customer",
                         principalColumn: "Customer_Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Address_Customer_CustomerId1",
-                        column: x => x.CustomerId1,
-                        principalTable: "Customer",
-                        principalColumn: "Customer_Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Address_CustomerId",
+                name: "IX_Address_Customer_Id",
                 table: "Address",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Address_CustomerId1",
-                table: "Address",
-                column: "CustomerId1");
+                column: "Customer_Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
