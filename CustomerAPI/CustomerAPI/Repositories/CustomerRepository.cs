@@ -53,10 +53,10 @@ namespace CustomerAPI.Repositories
             return null;
         }
 
-        public async Task<Customer> UpdateCustomer(Customer customer)
+        public Customer UpdateCustomer(Customer customer)
         {
-            var result = await _dbContext.Customers
-                 .FirstOrDefaultAsync(c => c.CustomerId == customer.CustomerId);
+            var result =  _dbContext.Customers
+                 .FirstOrDefault(c => c.CustomerId == customer.CustomerId);
 
             if (result != null)
             {
@@ -64,7 +64,7 @@ namespace CustomerAPI.Repositories
 
 
 
-                await _dbContext.SaveChangesAsync();
+                 _dbContext.SaveChanges();
 
                 return result;
             }
