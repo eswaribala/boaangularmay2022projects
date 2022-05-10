@@ -13,13 +13,8 @@ namespace CustomerAPI.Models
         public long CustomerId { get; set; }
         public FullName Name { get; set; }
         [Column("Country")]
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
-        public Customer(long customerId, FullName name, string country)
-        {
-            CustomerId = customerId;
-            Name = name;
-            Country = country;
-        }
+        
     }
 }
