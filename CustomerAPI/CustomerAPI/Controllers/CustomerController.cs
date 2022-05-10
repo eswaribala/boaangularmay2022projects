@@ -48,13 +48,13 @@ namespace CustomerAPI.Controllers
 
         // PUT api/<SupplierController>/5
         [HttpPut()]
-        public IActionResult Put([FromBody] Customer customer)
+        public async Task<IActionResult> Put([FromBody] Customer customer)
         {
             if (customer != null)
             {
-                using (var scope = new TransactionScope())
+                using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                   _customerRepository.UpdateCustomer(customer);
+                   await _customerRepository.UpdateCustomer(customer);
                     scope.Complete();
                    
                     return new OkResult();
