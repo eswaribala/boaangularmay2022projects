@@ -1,11 +1,14 @@
-﻿using CustomerAPI.Models;
+﻿using CustomerAPI.Auth;
+using CustomerAPI.Models;
 using CustomerAPI.Repositories;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
 
 namespace CustomerAPI.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     [ApiVersion("1")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
