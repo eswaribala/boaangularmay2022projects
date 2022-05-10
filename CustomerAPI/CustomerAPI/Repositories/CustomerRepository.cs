@@ -13,15 +13,15 @@ namespace CustomerAPI.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<Customer> AddCustomer(Customer customer)
+        public  Customer AddCustomer(Customer customer)
         {
-          var result=await  this._dbContext.Customers.AddAsync(customer);
-            await _dbContext.SaveChangesAsync();
-            return result.Entity;
+          var result=  this._dbContext.Customers.Add(customer);
+             _dbContext.SaveChanges();
+            return customer;
 
         }
 
-        public async Task<bool> DeleteCustomerById(long CustomerId)
+        public bool DeleteCustomerById(long CustomerId)
         {
             var result = _dbContext.Customers
              .FirstOrDefault(c => c.CustomerId == CustomerId);
@@ -31,29 +31,29 @@ namespace CustomerAPI.Repositories
                 _dbContext.SaveChanges();
             }
 
-            if (await GetCustomerById(CustomerId) == null)
+            if (GetCustomerById(CustomerId) == null)
                 return true;
             return false;
         }
 
-        public async Task<IEnumerable<Customer>> GetAllCustomers()
+        public IEnumerable<Customer> GetAllCustomers()
         {
-            return await _dbContext.Customers.ToListAsync();
+            return  _dbContext.Customers.ToList();
         }
 
-        public async Task<Customer> GetCustomerById(long CustomerId)
+        public Customer GetCustomerById(long CustomerId)
         {
-            var result = await _dbContext.Customers
-             .FirstOrDefaultAsync(c => c.CustomerId == CustomerId);
+            var result =  _dbContext.Customers
+             .FirstOrDefault(c => c.CustomerId == CustomerId);
             if (result != null)
                 return result;
             return null;
         }
 
-        public async Task<Customer> UpdateCustomer(Customer customer)
+        public Customer UpdateCustomer(Customer customer)
         {
-            var result = await _dbContext.Customers
-                 .FirstOrDefaultAsync(c => c.CustomerId == customer.CustomerId);
+            var result =  _dbContext.Customers
+                 .FirstOrDefault(c => c.CustomerId == customer.CustomerId);
 
             if (result != null)
             {
@@ -61,7 +61,7 @@ namespace CustomerAPI.Repositories
 
 
 
-                await _dbContext.SaveChangesAsync();
+                _dbContext.SaveChanges();
 
                 return result;
             }

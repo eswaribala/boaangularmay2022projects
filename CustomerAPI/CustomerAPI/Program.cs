@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<CustomerContext>(o => o.UseSqlServer
 (builder.Configuration.GetConnectionString("CustomerDBConn")));
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();

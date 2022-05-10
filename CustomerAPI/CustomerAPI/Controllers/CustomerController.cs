@@ -19,17 +19,15 @@ namespace CustomerAPI.Controllers
 
         // GET: api/<SupplierController>
         [HttpGet]
-        public Task<IEnumerable<Customer>> Get()
+        public IEnumerable<Customer> Get()
         {
-            Task<IEnumerable<Customer>> data = _customerRepository.GetAllCustomers();
+            return  _customerRepository.GetAllCustomers();
 
-           
-            return data;
         }
 
         // GET api/<SupplierController>/5
         [HttpGet("{CustomerId}")]
-        public Task<Customer> Get(long CustomerId)
+        public Customer Get(long CustomerId)
         {
             return _customerRepository.GetCustomerById(CustomerId);
         }
