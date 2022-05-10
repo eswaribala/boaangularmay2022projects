@@ -4,11 +4,11 @@ namespace CustomerAPI.Repositories
 {
     public interface ICustomerRepository
     {
-        Customer AddCustomer(Customer customer);
-        Customer UpdateCustomer(Customer customer);
-        Boolean DeleteCustomerById(long CustomerId);
-        Customer GetCustomerById(long CustomerId); 
-        IEnumerable<Customer> GetAllCustomers();
+        Task<Customer> AddCustomer(Customer customer);
+        Task<Customer> UpdateCustomer(Customer customer);
+        Task<Boolean> DeleteCustomerById(long CustomerId);
+        Task<Customer> GetCustomerById(long CustomerId); 
+        Task<IEnumerable<Customer>> GetAllCustomers();
 
     }
 }

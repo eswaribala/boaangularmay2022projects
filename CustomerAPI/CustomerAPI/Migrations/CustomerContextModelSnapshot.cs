@@ -54,7 +54,7 @@ namespace CustomerAPI.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Address");
+                    b.ToTable("Address", (string)null);
                 });
 
             modelBuilder.Entity("CustomerAPI.Models.Customer", b =>
@@ -74,13 +74,9 @@ namespace CustomerAPI.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Email");
 
-                    b.Property<long>("MobileNo")
-                        .HasColumnType("bigint")
-                        .HasColumnName("MobileNo");
-
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customer", (string)null);
                 });
 
             modelBuilder.Entity("CustomerAPI.Models.Address", b =>
@@ -96,7 +92,7 @@ namespace CustomerAPI.Migrations
 
             modelBuilder.Entity("CustomerAPI.Models.Customer", b =>
                 {
-                    b.OwnsOne("CustomerAPI.Models.FullName", "Name", b1 =>
+                    b.OwnsOne("CustomerAPI.Models.Customer.Name#CustomerAPI.Models.FullName", "Name", b1 =>
                         {
                             b1.Property<long>("CustomerId")
                                 .HasColumnType("bigint");
@@ -118,7 +114,7 @@ namespace CustomerAPI.Migrations
 
                             b1.HasKey("CustomerId");
 
-                            b1.ToTable("Customer");
+                            b1.ToTable("Customer", (string)null);
 
                             b1.WithOwner()
                                 .HasForeignKey("CustomerId");

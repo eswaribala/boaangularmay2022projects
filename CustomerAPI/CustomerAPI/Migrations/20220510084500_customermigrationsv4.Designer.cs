@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerAPI.Migrations
 {
     [DbContext(typeof(CustomerContext))]
-    [Migration("20220510063928_customermigrationsv4")]
+    [Migration("20220510084500_customermigrationsv4")]
     partial class customermigrationsv4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,10 +75,6 @@ namespace CustomerAPI.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Email");
-
-                    b.Property<long>("MobileNo")
-                        .HasColumnType("bigint")
-                        .HasColumnName("MobileNo");
 
                     b.HasKey("CustomerId");
 

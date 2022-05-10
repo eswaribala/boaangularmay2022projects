@@ -20,26 +20,26 @@ namespace CustomerAPI.Controllers
 
         // GET: api/<SupplierController>
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public async Task<IEnumerable<Customer>> Get()
         {
-            return  _customerRepository.GetAllCustomers();
+            return  await _customerRepository.GetAllCustomers();
 
         }
 
         // GET api/<SupplierController>/5
         [HttpGet("{CustomerId}")]
-        public Customer Get(long CustomerId)
+        public async Task<Customer> Get(long CustomerId)
         {
-            return _customerRepository.GetCustomerById(CustomerId);
+            return await _customerRepository.GetCustomerById(CustomerId);
         }
 
         // POST api/<CustomerController>
         [HttpPost]
-        public IActionResult Post([FromBody] Customer customer)
+        public async Task<IActionResult> Post([FromBody] Customer customer)
         {
             
 
-            _customerRepository.AddCustomer(customer);
+            await _customerRepository.AddCustomer(customer);
 
             return CreatedAtAction(nameof(Get),
                  new { id = customer.CustomerId }, customer);
@@ -48,13 +48,13 @@ namespace CustomerAPI.Controllers
 
         // PUT api/<SupplierController>/5
         [HttpPut()]
-        public IActionResult Put([FromBody] Customer customer)
+        public async Task<IActionResult> Put([FromBody] Customer customer)
         {
             if (customer != null)
             {
                 using (var scope = new TransactionScope())
                 {
-                    _customerRepository.UpdateCustomer(customer);
+                   await _customerRepository.UpdateCustomer(customer);
                     scope.Complete();
                    
                     return new OkResult();
@@ -65,9 +65,9 @@ namespace CustomerAPI.Controllers
 
         // DELETE api/<SupplierController>/5
         [HttpDelete("{CustomerId}")]
-        public IActionResult Delete(long CustomerId)
+        public async Task<IActionResult> Delete(long CustomerId)
         {
-            if(_customerRepository.DeleteCustomerById(CustomerId))
+            if(await _customerRepository.DeleteCustomerById(CustomerId))
                return new OkResult();
             else
                 return new NoContentResult();

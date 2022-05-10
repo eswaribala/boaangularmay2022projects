@@ -16,6 +16,5 @@ namespace CustomerAPI.Models
         public string? Country { get; set; }
        
         
-        
     }
 }
