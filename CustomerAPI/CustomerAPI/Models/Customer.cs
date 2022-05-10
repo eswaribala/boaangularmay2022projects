@@ -15,9 +15,7 @@ namespace CustomerAPI.Models
         [Column("Country")]
         public string? Country { get; set; }
        
-        [Column("Email")]
-        public string? Email { get; set; }
-
+        
         
     }
 }

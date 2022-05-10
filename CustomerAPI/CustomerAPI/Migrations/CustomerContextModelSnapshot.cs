@@ -74,6 +74,10 @@ namespace CustomerAPI.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Email");
 
+                    b.Property<long>("MobileNo")
+                        .HasColumnType("bigint")
+                        .HasColumnName("MobileNo");
+
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customer");

@@ -17,7 +17,8 @@ namespace CustomerAPI.Migrations
                     First_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Last_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Middle_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

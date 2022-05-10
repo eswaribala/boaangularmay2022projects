@@ -4,7 +4,7 @@
 
 namespace CustomerAPI.Migrations
 {
-    public partial class customermigrationv3 : Migration
+    public partial class customermigrationsv4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,4 +1,5 @@
 using CustomerAPI.Contexts;
+using CustomerAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<CustomerContext>(o => o.UseSqlServer
 (builder.Configuration.GetConnectionString("CustomerDBConn")));
-
+builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+builder.Services.AddApiVersioning();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

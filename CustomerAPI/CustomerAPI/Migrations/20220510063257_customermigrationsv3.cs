@@ -4,21 +4,22 @@
 
 namespace CustomerAPI.Migrations
 {
-    public partial class customermigrationsv2 : Migration
+    public partial class customermigrationsv3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Email",
+            migrationBuilder.AddColumn<long>(
+                name: "MobileNo",
                 table: "Customer",
-                type: "nvarchar(max)",
-                nullable: true);
+                type: "bigint",
+                nullable: false,
+                defaultValue: 0L);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Email",
+                name: "MobileNo",
                 table: "Customer");
         }
     }
