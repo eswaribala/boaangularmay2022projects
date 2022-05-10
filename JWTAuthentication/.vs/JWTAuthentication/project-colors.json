@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5b0dd095-af1d-4e73-a33f-170ab860907e": {
+      "ProjectGuid": "5b0dd095-af1d-4e73-a33f-170ab860907e",
+      "DisplayName": "JWTAuthentication",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

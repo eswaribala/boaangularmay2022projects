@@ -1,0 +1,6 @@
+G:\Local disk\dotnetcoremicroservices\JWTAuthentication\JWTAuthentication\obj\Debug\net5.0\JWTAuthentication.csproj.AssemblyReference.cache
+G:\Local disk\dotnetcoremicroservices\JWTAuthentication\JWTAuthentication\obj\Debug\net5.0\JWTAuthentication.GeneratedMSBuildEditorConfig.editorconfig
+G:\Local disk\dotnetcoremicroservices\JWTAuthentication\JWTAuthentication\obj\Debug\net5.0\JWTAuthentication.AssemblyInfoInputs.cache
+G:\Local disk\dotnetcoremicroservices\JWTAuthentication\JWTAuthentication\obj\Debug\net5.0\JWTAuthentication.AssemblyInfo.cs
+G:\Local disk\dotnetcoremicroservices\JWTAuthentication\JWTAuthentication\obj\Debug\net5.0\JWTAuthentication.csproj.CoreCompileInputs.cache
+G:\Local disk\dotnetcoremicroservices\JWTAuthentication\JWTAuthentication\obj\Debug\net5.0\JWTAuthentication.MvcApplicationPartsAssemblyInfo.cache
