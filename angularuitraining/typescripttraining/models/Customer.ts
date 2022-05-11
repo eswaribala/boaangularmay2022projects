@@ -1,4 +1,4 @@
-export class Customer{
+class Customer{
     private _firstName:string;
     private _lastName:string;
     private _dob:Date;
@@ -35,3 +35,7 @@ export class Customer{
 }
 
 
+var customerObj=new Customer("Parameswari","Bala",
+    new Date(1970,12,2));
+console.log("First Name",customerObj.firstName);
+console.log("Last Name",customerObj.lastName);
