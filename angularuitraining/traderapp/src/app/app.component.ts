@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   logoPath:string;
+  banner:string;
   constructor() {
-    this.logoPath="../assets/images/logo.png"
+    this.logoPath="../assets/images/logo.png";
+    this.banner="../assets/images/banner.jpg";
   }
 }

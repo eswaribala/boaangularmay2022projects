@@ -1,0 +1,24 @@
+.header{
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  font-size: calc(10px + 2vmin);
+
+}
+.logo{
+  width: 100px;
+  height: 100px;
+}
+.banner{
+  width:400px;
+  height:100px;
+}
+.multicolortext {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+
+  color: transparent;
+  font-family: "Lucida Calligraphy"
+}
