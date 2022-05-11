@@ -13,7 +13,7 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("CustomerDBConn")));
 builder.Services.AddDbContext<CustomerContext>(o => o.UseSqlServer
 (builder.Configuration.GetConnectionString("CustomerDBConn")));
 
@@ -69,13 +69,15 @@ app.UseHttpsRedirection();
 app.UseCors(builder =>
 {
     builder
-    .WithOrigins("http://localhost:4200","http://localhost:3000")
+    .WithOrigins("http://localhost:4200","http://localhost:3000","http://localhost:5279")
     .WithMethods("PUT", "DELETE", "GET","POST")
     .AllowAnyHeader();
     
 
 });
 
+// Authentication & Authorization
+app.UseAuthentication();
 app.UseAuthorization();
 
 
