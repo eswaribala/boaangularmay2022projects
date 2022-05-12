@@ -77,7 +77,7 @@ app.UseCors(builder =>
 });
 
 // Authentication & Authorization
-app.UseAuthentication();
+//app.UseAuthentication();
 app.UseAuthorization();
 
 

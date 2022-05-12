@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CountryService} from "../../services/country.service";
+import {CustomerService} from "../../services/customer.service";
 
 @Component({
   selector: 'app-customer',
@@ -15,7 +16,9 @@ export class CustomerComponent implements OnInit {
    customerForm:FormGroup;
    countries:any;
    isSuccess:boolean=false;
-  constructor(private formBuilder:FormBuilder,private countryService:CountryService) {
+  constructor(private formBuilder:FormBuilder,
+              private countryService:CountryService,
+              private customerService:CustomerService) {
 
     this.firstName=new FormControl('',
       [Validators.required,Validators.pattern("[A-Za-z]{5,25}")]);
@@ -48,6 +51,21 @@ export class CustomerComponent implements OnInit {
     console.log(this.customerForm.value);
     if(!this.isSuccess)
      this.isSuccess=true;
+   let customerObj= {
+      "customerId": 0,
+      "name": {
+      "firstName": this.customerForm.value.firstName,
+        "lastName": this.customerForm.value.lastName,
+        "middleName": this.customerForm.value.middleName
+    },
+      "country": this.customerForm.value.country
+    }
 
+    console.log(customerObj);
+   this.customerService.sendCustomerData(customerObj).subscribe(response=>{
+     console.log(response);
+   },error=>{
+     console.log(error);
+   })
   }
 }
