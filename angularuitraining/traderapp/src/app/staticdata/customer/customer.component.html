@@ -72,11 +72,10 @@
       </div>
     </mat-form-field>
     <div class="button">
-    <button mat-fab class="alert alert-primary"
-            [disabled]="!customerForm.valid" *ngIf="!isSuccess">
+    <button mat-fab class="alert alert-primary"   [disabled]="!customerForm.valid" *ngIf="!isSuccess">
       <mat-icon>save</mat-icon>
     </button>
-    <button type="reset" mat-fab class="alert alert-danger" [disabled]="!customerForm.valid">
+    <button type="reset" mat-fab class="alert alert-danger" [disabled]="!customerForm.valid" *ngIf="isSuccess">
       <mat-icon>format_clear</mat-icon>
     </button>
     </div>

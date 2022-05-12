@@ -46,6 +46,8 @@ export class CustomerComponent implements OnInit {
 
   saveCustomer() {
     console.log(this.customerForm.value);
-    this.isSuccess=true;
+    if(!this.isSuccess)
+     this.isSuccess=true;
+
   }
 }
