@@ -17,11 +17,12 @@ import { LogoutComponent } from './logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatOptionModule} from "@angular/material/core";
     MarketdataComponent,
     LiborComponent,
     ForexComponent,
-    LogoutComponent
+    LogoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import {MatOptionModule} from "@angular/material/core";
     ReactiveFormsModule,
     HttpClientModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

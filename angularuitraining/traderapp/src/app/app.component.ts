@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   logoPath:string;
   banner:string;
+  isLogged:boolean;
   constructor() {
     this.logoPath="../assets/images/logo.png";
     this.banner="../assets/images/banner.jpg";
+    this.isLogged=false;
   }
 }

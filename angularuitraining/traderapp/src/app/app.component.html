@@ -10,7 +10,8 @@
     </figure>
   </header>
   <section>
-    <trader-menu></trader-menu>
+    <trader-login *ngIf="!isLogged"></trader-login>
+    <trader-menu *ngIf="isLogged"></trader-menu>
   </section>
   <!--placeholder-->
   <router-outlet>
