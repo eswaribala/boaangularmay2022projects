@@ -1,16 +1,16 @@
-<form [formGroup]="customerForm" (ngSubmit)="saveCustomer()">
+<form [formGroup]="customerForm" (ngSubmit)="saveCustomer()" class="form">
   <fieldset>
     <legend>Customer Data Form</legend>
-  <mat-form-field>
+  <mat-form-field class="mat-full-width">
      <mat-placeholder>
        <mat-icon>
          person
        </mat-icon>
        First Name
      </mat-placeholder>
-    <input type="text" matInput [formControl]="firstName"/>
+    <input type="text" matInput [formControl]="firstName" />
   </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="mat-full-width">
       <mat-placeholder>
         <mat-icon>
           person
@@ -19,7 +19,7 @@
       </mat-placeholder>
       <input type="text" matInput [formControl]="middleName"/>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="mat-full-width">
       <mat-placeholder>
         <mat-icon>
           person
@@ -28,7 +28,7 @@
       </mat-placeholder>
       <input type="text" matInput [formControl]="lastName"/>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="mat-full-width">
       <mat-placeholder>
         <mat-icon>
           person
@@ -37,11 +37,13 @@
       </mat-placeholder>
       <input type="text" matInput [formControl]="country"/>
     </mat-form-field>
-    <button mat-fab>
+    <div class="button">
+    <button mat-fab class="alert alert-primary">
       <mat-icon>save</mat-icon>
     </button>
-    <button mat-fab>
-      <mat-icon>reset</mat-icon>
+    <button mat-fab class="alert alert-danger" >
+      <mat-icon>format_clear</mat-icon>
     </button>
+    </div>
   </fieldset>
 </form>
