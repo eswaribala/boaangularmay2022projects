@@ -10,53 +10,69 @@ import {LiborComponent} from "./marketdata/libor/libor.component";
 import {ForexComponent} from "./marketdata/forex/forex.component";
 
 import {LogoutComponent} from "./logout/logout.component";
+import {LoginComponent} from "./login/login.component";
 
-const routes: Routes = [{
-   path:'StaticData',
-   component:StaticdataComponent,
-   children:[{
-     path:'Customer',
-     component: CustomerComponent
-   },
-     {
-       path:'Currency',
-       component: CurrencyComponent
-     },
-     {
-       path:'Calendar',
-       component: CalendarComponent
-     },
-     {
-       path:'Bank',
-       component: BankComponent
-     }
-   ]
-},
+const routes: Routes = [
   {
-    path:'MarketData',
-    component:MarketdataComponent,
-    children:[{
-      path:'LIBOR',
-      component: LiborComponent
+    path:'Login',
+    component:LoginComponent
+  },
+
+  {
+  path:'Menu',
+  children:[
+    {
+      path:'StaticData',
+      component:StaticdataComponent,
+      children:[{
+        path:'Customer',
+        component: CustomerComponent
+      },
+        {
+          path:'Currency',
+          component: CurrencyComponent
+        },
+        {
+          path:'Calendar',
+          component: CalendarComponent
+        },
+        {
+          path:'Bank',
+          component: BankComponent
+        }
+      ]
     },
-      {
-        path:'FOREX',
-        component: ForexComponent
-      }
-    ]
-  },
-  {
-    path: 'Trading',
-    loadChildren: () => import('./trading/trading.module')
-      .then(m => m.TradingModule)
+    {
+      path:'MarketData',
+      component:MarketdataComponent,
+      children:[{
+        path:'LIBOR',
+        component: LiborComponent
+      },
+        {
+          path:'FOREX',
+          component: ForexComponent
+        }
+      ]
+    },
+    {
+      path: 'Trading',
+      loadChildren: () => import('./trading/trading.module')
+        .then(m => m.TradingModule)
+
+    },
+
+    {
+      path:'Logout',
+      component:LogoutComponent
+
 
   },
+    { path: '', redirectTo: '/Login', pathMatch: 'full' },
+    { path: '**', redirectTo: '/Login' }
+  ]
+},
 
-  {
-    path:'Logout',
-    component:LogoutComponent
-
-  }
 
 
 
