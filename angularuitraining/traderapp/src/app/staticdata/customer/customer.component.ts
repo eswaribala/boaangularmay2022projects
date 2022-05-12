@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {CountryService} from "../../services/country.service";
 
 @Component({
   selector: 'app-customer',
@@ -12,8 +13,9 @@ export class CustomerComponent implements OnInit {
    lastName:FormControl;
    country:FormControl;
    customerForm:FormGroup;
-
-  constructor(private formBuilder:FormBuilder) {
+   countries:any;
+   isSuccess:boolean=false;
+  constructor(private formBuilder:FormBuilder,private countryService:CountryService) {
 
     this.firstName=new FormControl('',
       [Validators.required,Validators.pattern("[A-Za-z]{5,25}")]);
@@ -33,9 +35,17 @@ export class CustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.countryService.getCountries().subscribe(response=>{
+      this.countries=response;
+
+      this.countries.forEach((country:any)=>{
+        console.log(country["name"]);
+      })
+    })
   }
 
   saveCustomer() {
     console.log(this.customerForm.value);
+    this.isSuccess=true;
   }
 }

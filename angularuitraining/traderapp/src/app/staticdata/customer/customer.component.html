@@ -58,7 +58,10 @@
         </mat-icon>
         Country
       </mat-placeholder>
-      <input type="text" matInput [formControl]="country"/>
+      <mat-select [formControl]="country">
+
+        <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+      </mat-select>
       <div [hidden]="country.valid" class="validation">
         <div [hidden]="!country.hasError('required')">
           Country is required.
@@ -69,10 +72,11 @@
       </div>
     </mat-form-field>
     <div class="button">
-    <button mat-fab class="alert alert-primary">
+    <button mat-fab class="alert alert-primary"
+            [disabled]="!customerForm.valid" *ngIf="!isSuccess">
       <mat-icon>save</mat-icon>
     </button>
-    <button mat-fab class="alert alert-danger" >
+    <button type="reset" mat-fab class="alert alert-danger" [disabled]="!customerForm.valid">
       <mat-icon>format_clear</mat-icon>
     </button>
     </div>

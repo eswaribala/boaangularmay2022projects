@@ -19,6 +19,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
