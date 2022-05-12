@@ -1,4 +1,4 @@
-<form  class="form">
+<form (submit)="login( $event)"  #userForm="ngForm"  class="form">
   <fieldset>
     <legend>Login</legend>
     <mat-form-field class="mat-full-width">
@@ -17,9 +17,9 @@
     <mat-form-field class="mat-full-width">
       <mat-placeholder>
         <mat-icon>
-          person
+          lock
         </mat-icon>
-        User Name
+        Password
       </mat-placeholder>
       <input type="password" matInput [(ngModel)]="model.password"  name="password" #password="ngModel" />
       <div [hidden]="password.valid || password.pristine"

@@ -9,6 +9,7 @@ const httpOptions = {
 };
 
 const AUTH_API = 'https://localhost:44392/api/v1/customer';
+const LOGIN_API= 'https://localhost:44392/api/v1/Authenticate/login';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,21 @@ export class CustomerService {
 
     return this.httpClient.post(AUTH_API,
       customerObj).pipe(
+      catchError( err => {
+        if ((err.status > 400)&&(err.status < 500)) {
+          return EMPTY;
+        } else {
+          return throwError(err);
+        }
+      })
+    );
+
+  }
+
+  sendLoginData(loginObj:any):Observable<any>{
+
+    return this.httpClient.post(LOGIN_API,
+      loginObj).pipe(
       catchError( err => {
         if ((err.status > 400)&&(err.status < 500)) {
           return EMPTY;
