@@ -14,6 +14,11 @@ import { MarketdataComponent } from './marketdata/marketdata.component';
 import { LiborComponent } from './marketdata/libor/libor.component';
 import { ForexComponent } from './marketdata/forex/forex.component';
 import { LogoutComponent } from './logout/logout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -33,7 +38,12 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MenubarModule
+    MenubarModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

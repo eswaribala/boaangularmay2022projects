@@ -1,1 +1,47 @@
-<p>customer works!</p>
+<form [formGroup]="customerForm" (ngSubmit)="saveCustomer()">
+  <fieldset>
+    <legend>Customer Data Form</legend>
+  <mat-form-field>
+     <mat-placeholder>
+       <mat-icon>
+         person
+       </mat-icon>
+       First Name
+     </mat-placeholder>
+    <input type="text" matInput [formControl]="firstName"/>
+  </mat-form-field>
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>
+          person
+        </mat-icon>
+        Middle Name
+      </mat-placeholder>
+      <input type="text" matInput [formControl]="middleName"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>
+          person
+        </mat-icon>
+        Last Name
+      </mat-placeholder>
+      <input type="text" matInput [formControl]="lastName"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-placeholder>
+        <mat-icon>
+          person
+        </mat-icon>
+        Country
+      </mat-placeholder>
+      <input type="text" matInput [formControl]="country"/>
+    </mat-form-field>
+    <button mat-fab>
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-fab>
+      <mat-icon>reset</mat-icon>
+    </button>
+  </fieldset>
+</form>
