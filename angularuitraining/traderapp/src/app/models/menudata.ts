@@ -11,9 +11,9 @@ export const menuData:Item[]=[
     [new SubItem('LIBOR','pi pi-fw pi-arrow-right','MarketData/LIBOR'),
       new SubItem('FOREX','pi pi-fw pi-arrow-right','MarketData/FOREX')
     ]),
-  new Item('Trade Booking','pi pi-fw pi-plus', 'TradeBooking',
-    [new SubItem('Economic Trading','pi pi-fw pi-arrow-right','TradeBooking/Economic'),
-      new SubItem('Non Economic Trading','pi pi-fw pi-arrow-right','TradeBooking/NonEconomic')
+  new Item('Trade Booking','pi pi-fw pi-plus', 'Trading/TradeBooking',
+    [new SubItem('Economic Trading','pi pi-fw pi-arrow-right','Trading/TradeBooking/Economic'),
+      new SubItem('Non Economic Trading','pi pi-fw pi-arrow-right','Trading/TradeBooking/NonEconomic')
     ]),
   new Item('Exit/Logout','pi pi-fw pi-plus', 'Logout',
     []),

@@ -13,9 +13,6 @@ import { BankComponent } from './staticdata/bank/bank.component';
 import { MarketdataComponent } from './marketdata/marketdata.component';
 import { LiborComponent } from './marketdata/libor/libor.component';
 import { ForexComponent } from './marketdata/forex/forex.component';
-import { TradebookingComponent } from './tradebooking/tradebooking.component';
-import { NoneconomicComponent } from './tradebooking/noneconomic/noneconomic.component';
-import { EconomicComponent } from './tradebooking/economic/economic.component';
 import { LogoutComponent } from './logout/logout.component';
 
 
@@ -31,9 +28,6 @@ import { LogoutComponent } from './logout/logout.component';
     MarketdataComponent,
     LiborComponent,
     ForexComponent,
-    TradebookingComponent,
-    NoneconomicComponent,
-    EconomicComponent,
     LogoutComponent
   ],
   imports: [

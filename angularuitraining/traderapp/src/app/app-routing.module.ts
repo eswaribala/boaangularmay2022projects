@@ -8,9 +8,7 @@ import {BankComponent} from "./staticdata/bank/bank.component";
 import {MarketdataComponent} from "./marketdata/marketdata.component";
 import {LiborComponent} from "./marketdata/libor/libor.component";
 import {ForexComponent} from "./marketdata/forex/forex.component";
-import {TradebookingComponent} from "./tradebooking/tradebooking.component";
-import {EconomicComponent} from "./tradebooking/economic/economic.component";
-import {NoneconomicComponent} from "./tradebooking/noneconomic/noneconomic.component";
+
 import {LogoutComponent} from "./logout/logout.component";
 
 const routes: Routes = [{
@@ -48,18 +46,12 @@ const routes: Routes = [{
     ]
   },
   {
-    path:'TradeBooking',
-    component:TradebookingComponent,
-    children:[{
-      path:'Economic',
-      component: EconomicComponent
-    },
-      {
-        path:'NonEconomic',
-        component: NoneconomicComponent
-      }
-    ]
+    path: 'Trading',
+    loadChildren: () => import('./trading/trading.module')
+      .then(m => m.TradingModule)
+
   },
+
   {
     path:'Logout',
     component:LogoutComponent
