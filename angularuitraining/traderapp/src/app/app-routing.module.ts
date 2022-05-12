@@ -11,6 +11,7 @@ import {ForexComponent} from "./marketdata/forex/forex.component";
 
 import {LogoutComponent} from "./logout/logout.component";
 import {LoginComponent} from "./login/login.component";
+import {MenuComponent} from "./menu/menu.component";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
 
   {
   path:'Menu',
+  component:MenuComponent,
   children:[
     {
       path:'StaticData',
