@@ -48,13 +48,13 @@ export class Item{
 
 export class SubItem{
   private _label:string;
-  private __icon:string;
+  private _icon:string;
   private _routerLink:string;
 
 
   constructor(label: string, _icon: string, routerLink: string) {
     this._label = label;
-    this.__icon = _icon;
+    this._icon = _icon;
     this._routerLink = routerLink;
   }
 
@@ -66,12 +66,12 @@ export class SubItem{
     this._label = value;
   }
 
-  get _icon(): string {
-    return this.__icon;
+  get icon(): string {
+    return this._icon;
   }
 
-  set _icon(value: string) {
-    this.__icon = value;
+  set icon(value: string) {
+    this._icon = value;
   }
 
   get routerLink(): string {
