@@ -9,6 +9,14 @@
        First Name
      </mat-placeholder>
     <input type="text" matInput [formControl]="firstName" />
+    <div [hidden]="firstName.valid" class="validation">
+      <div [hidden]="!firstName.hasError('required')">
+        FirstName is required.
+      </div>
+      <div [hidden]="!firstName.hasError('pattern')">
+        Not matching pattern.</div>
+
+    </div>
   </mat-form-field>
     <mat-form-field class="mat-full-width">
       <mat-placeholder>
@@ -18,6 +26,13 @@
         Middle Name
       </mat-placeholder>
       <input type="text" matInput [formControl]="middleName"/>
+      <div [hidden]="middleName.valid" class="validation">
+
+
+        <div [hidden]="!middleName.hasError('pattern')">
+          Not matching pattern.</div>
+
+      </div>
     </mat-form-field>
     <mat-form-field class="mat-full-width">
       <mat-placeholder>
@@ -27,6 +42,14 @@
         Last Name
       </mat-placeholder>
       <input type="text" matInput [formControl]="lastName"/>
+      <div [hidden]="lastName.valid" class="validation">
+        <div [hidden]="!lastName.hasError('required')">
+          LastName is required.
+        </div>
+        <div [hidden]="!lastName.hasError('pattern')">
+          Not matching pattern.</div>
+
+      </div>
     </mat-form-field>
     <mat-form-field class="mat-full-width">
       <mat-placeholder>
@@ -36,6 +59,14 @@
         Country
       </mat-placeholder>
       <input type="text" matInput [formControl]="country"/>
+      <div [hidden]="country.valid" class="validation">
+        <div [hidden]="!country.hasError('required')">
+          Country is required.
+        </div>
+        <div [hidden]="!country.hasError('pattern')">
+          Not matching pattern.</div>
+
+      </div>
     </mat-form-field>
     <div class="button">
     <button mat-fab class="alert alert-primary">
