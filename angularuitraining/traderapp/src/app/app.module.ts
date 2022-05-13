@@ -27,6 +27,9 @@ import {SearchcustomerComponent} from "./staticdata/searchcustomer/searchcustome
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTableModule} from "@angular/material/table";
+import { PhotoeditComponent } from './staticdata/currency/photoedit/photoedit.component';
+import { PhotodeleteComponent } from './staticdata/currency/photodelete/photodelete.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -44,7 +47,9 @@ import {MatTableModule} from "@angular/material/table";
     ForexComponent,
     LogoutComponent,
     LoginComponent,
-    SearchcustomerComponent
+    SearchcustomerComponent,
+    PhotoeditComponent,
+    PhotodeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,8 @@ import {MatTableModule} from "@angular/material/table";
     FormsModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

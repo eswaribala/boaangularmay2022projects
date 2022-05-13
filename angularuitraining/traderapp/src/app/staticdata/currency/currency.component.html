@@ -1,8 +1,11 @@
-<div *ngIf="photos"  style="width: 800px; margin-left: 75px">
+<div *ngIf="photos?.length>0"  style="width: 800px; margin-left: 75px">
 
   <mat-table [dataSource]="tableSource" matSort id="contentToConvert">
 
-
+    <ng-container matColumnDef="albumId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Album Id </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{elem.albumId}} </mat-cell>
+    </ng-container>
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Id </mat-header-cell>
       <mat-cell *matCellDef="let elem"> {{elem.id}} </mat-cell>
@@ -17,13 +20,13 @@
     </ng-container>
     <ng-container matColumnDef="thumbnailUrl">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Thumbnail Url </mat-header-cell>
-      <mat-cell *matCellDef="let elem"> {{elem.thumbnailrUrl}} </mat-cell>
+      <mat-cell *matCellDef="let elem"><img src="{{elem.thumbnailUrl}}"/> </mat-cell>
     </ng-container>
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef > Edit
       </mat-header-cell>
       <mat-cell *matCellDef="let elem">
-        <button mat-fab class="alert-danger">
+        <button mat-fab class="alert-danger" (click)="openDialog(elem)">
           <mat-icon>
             edit
           </mat-icon>
