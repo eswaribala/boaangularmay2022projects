@@ -1,1 +1,57 @@
-<p>currency works!</p>
+<div *ngIf="photos"  style="width: 800px; margin-left: 75px">
+
+  <mat-table [dataSource]="tableSource" matSort id="contentToConvert">
+
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{elem.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{elem.title}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Url </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{elem.url}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="thumbnailUrl">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Thumbnail Url </mat-header-cell>
+      <mat-cell *matCellDef="let elem"> {{elem.thumbnailrUrl}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef > Edit
+      </mat-header-cell>
+      <mat-cell *matCellDef="let elem">
+        <button mat-fab class="alert-danger">
+          <mat-icon>
+            edit
+          </mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef > Delete
+      </mat-header-cell>
+      <mat-cell *matCellDef="let elem">
+        <button mat-fab  class="alert-danger">
+          <mat-icon>
+            delete
+          </mat-icon>
+        </button>
+      </mat-cell>
+
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[3,5,7, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+

@@ -24,6 +24,9 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import { LoginComponent } from './login/login.component';
 import {SearchcustomerComponent} from "./staticdata/searchcustomer/searchcustomer.component";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {MatTableModule} from "@angular/material/table";
 
 
 
@@ -55,7 +58,10 @@ import {SearchcustomerComponent} from "./staticdata/searchcustomer/searchcustome
     HttpClientModule,
     MatSelectModule,
     MatOptionModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

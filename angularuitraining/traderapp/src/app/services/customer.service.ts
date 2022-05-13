@@ -10,7 +10,7 @@ const httpOptions = {
 
 const AUTH_API = 'https://localhost:44392/api/v1/customer';
 const LOGIN_API= 'https://localhost:44392/api/v1/Authenticate/login';
-
+const PHOTO_API='https://jsonplaceholder.typicode.com/photos'
 @Injectable({
   providedIn: 'root'
 })
@@ -52,6 +52,11 @@ export class CustomerService {
 
   getCustomerData(customerId:any):Observable<any>{
    return this.httpClient.get(AUTH_API+"/"+customerId);
+  }
+
+  getPhotos():Observable<any>{
+   return this.httpClient.get(PHOTO_API);
+
   }
 
 }
