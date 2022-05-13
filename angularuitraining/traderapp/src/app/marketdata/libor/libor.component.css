@@ -1,0 +1,16 @@
+.table{
+  width:30%;
+  margin-left: 25%;
+}
+.table th{
+  background-color: orangered;
+  color:white;
+}
+.table tr{
+  background-color: white;
+  color:blue;
+}
+.table tr:nth-child(2n+1){
+  background-color: blue;
+  color:white
+}

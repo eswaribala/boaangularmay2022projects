@@ -13,4 +13,7 @@ export class CountryService {
     return this.httpClient.get('https://restcountries.com/v2/all');
   }
 
+  getNasDaqData():Observable<any>{
+    return this.httpClient.get('https://data.nasdaq.com/api/v3/datasets/OPEC/ORB.json');
+  }
 }

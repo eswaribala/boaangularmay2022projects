@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-photodelete',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotodeleteComponent implements OnInit {
 
-  constructor() { }
+  constructor( public matDialogRef: MatDialogRef<PhotodeleteComponent>,
+               @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
   }
-
+  onNoClick(): void {
+    this.matDialogRef.close();
+  }
 }

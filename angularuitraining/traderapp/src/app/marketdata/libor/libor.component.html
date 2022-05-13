@@ -1,1 +1,26 @@
-<p>libor works!</p>
+<div>
+  <mat-form-field>
+    <mat-placeholder>
+      <mat-icon>search</mat-icon>
+      Search
+    </mat-placeholder>
+    <input type="text" matInput [(ngModel)]="searchData" name="searchText"/>
+  </mat-form-field>
+</div>
+<div *ngIf="oilData">
+<table class="table">
+  <tr>
+    <th>
+      Date
+    </th>
+    <th>
+      Price
+    </th>
+  </tr>
+  <tr *ngFor="let data of oilData|oildataFilter:searchData">
+      <td>{{data[0]}}</td>
+    <td>{{data[1]}}</td>
+  </tr>
+
+</table>
+</div>

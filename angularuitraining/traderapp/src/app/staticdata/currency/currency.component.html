@@ -1,6 +1,11 @@
+<div>
+  <mat-form-field appearance="standard" class="full-width alert-warning">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search Columns" #input>
+  </mat-form-field>
 <div *ngIf="photos?.length>0"  style="width: 800px; margin-left: 75px">
 
-  <mat-table [dataSource]="tableSource" matSort id="contentToConvert">
+  <mat-table [dataSource]="tableSource" matSort id="photoContent">
 
     <ng-container matColumnDef="albumId">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Album Id </mat-header-cell>
@@ -37,7 +42,7 @@
       <mat-header-cell *matHeaderCellDef > Delete
       </mat-header-cell>
       <mat-cell *matCellDef="let elem">
-        <button mat-fab  class="alert-danger">
+        <button mat-fab  class="alert-danger"  (click)="deleteRowData(elem)">
           <mat-icon>
             delete
           </mat-icon>
@@ -54,7 +59,10 @@
 
 
   </mat-table>
-  <mat-paginator [pageSizeOptions]="[3,5,7, 10, 20]" showFirstLastButtons></mat-paginator>
 
 </div>
+</div>
 
+<div class="pagination">
+  <mat-paginator [pageSizeOptions]="[3,5,7, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

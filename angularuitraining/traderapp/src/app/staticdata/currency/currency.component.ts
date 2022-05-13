@@ -5,6 +5,7 @@ import {MatSort} from "@angular/material/sort";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog";
 import { PhotoeditComponent } from './photoedit/photoedit.component';
+import { PhotodeleteComponent } from './photodelete/photodelete.component';
 @Component({
   selector: 'app-currency',
   templateUrl: './currency.component.html',
@@ -49,7 +50,46 @@ export class CurrencyComponent implements OnInit,AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      //this.updateRowData(result);
+      this.updateRowData(result);
     });
   }
+
+  updateRowData(row_obj:any){
+    this.tableSource.data = this.tableSource.data.filter((obj:any)=>{
+      if(obj.id == row_obj.id){
+        obj.title = row_obj.title;
+
+      }
+      return true;
+    });
+  }
+
+  deleteRowData(elem:any) {
+    const dialogRef=this.matDialog.open(PhotodeleteComponent,{
+      width: '500px',
+      data: {
+        id:elem.id,
+        title: elem.title
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      this.tableSource.data = this.tableSource.data.filter((value:any)=>{
+        return value.id != result.id;
+      });
+
+    });
+  }
+
+  applyFilter(event: KeyboardEvent) {
+    const filter = (event.target as HTMLInputElement).value.trim().toLocaleLowerCase();
+    this.tableSource.filter = filter;
+    if (this.tableSource.paginator) {
+      this.tableSource.paginator.firstPage();
+    }
+    console.log(this.tableSource.filter );
+
+  }
 }
+

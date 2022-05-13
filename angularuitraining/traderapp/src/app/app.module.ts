@@ -30,6 +30,8 @@ import {MatTableModule} from "@angular/material/table";
 import { PhotoeditComponent } from './staticdata/currency/photoedit/photoedit.component';
 import { PhotodeleteComponent } from './staticdata/currency/photodelete/photodelete.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { CurrencydeleteComponent } from './staticdata/currency/currencydelete/currencydelete.component';
+import { OildataPipe } from './marketdata/libor/oildata.pipe';
 
 
 
@@ -49,7 +51,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     LoginComponent,
     SearchcustomerComponent,
     PhotoeditComponent,
-    PhotodeleteComponent
+    PhotodeleteComponent,
+    CurrencydeleteComponent,
+    OildataPipe
   ],
   imports: [
     BrowserModule,
