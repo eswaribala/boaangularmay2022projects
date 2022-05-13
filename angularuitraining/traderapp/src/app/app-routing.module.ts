@@ -69,13 +69,13 @@ const routes: Routes = [
       component:LogoutComponent
 
 
-  },
-    { path: '', redirectTo: '/Login', pathMatch: 'full' },
-    { path: '**', redirectTo: '/Login' }
+  }
+
   ]
 },
 
-
+  { path: '', redirectTo: '/Login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/Login' }
 
 
 ];

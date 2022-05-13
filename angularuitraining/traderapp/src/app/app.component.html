@@ -4,17 +4,27 @@
       <!--interpolation-->
       <img src="{{logoPath}}" class="logo">
     </figure>
-    <h2 class="multicolortext">Global Trading</h2>
+    <h1 class="multicolortext">Global Trading</h1>
+    <ul *ngIf="!isLogged">
+
+      <li><a href="/Login"><h2 class="multicolortextul">Login</h2></a></li>
+
+    </ul>
+    <ul *ngIf="isLogged">
+
+      <li><a href="#">
+        <h2 class="multicolortextul">Logout</h2></a></li>
+    </ul>
+
+
     <figure>
       <img src="{{banner}}" class="banner">
     </figure>
   </header>
-  <section>
-    <trader-login *ngIf="!isLogged"></trader-login>
-    <trader-menu *ngIf="isLogged"></trader-menu>
-  </section>
-  <!--placeholder-->
-  <router-outlet>
 
-  </router-outlet>
+  <!--placeholder-->
+
 </section>
+<router-outlet>
+
+</router-outlet>
