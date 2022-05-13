@@ -3,6 +3,7 @@ import {Item, SubItem} from "./menuitem";
 export const menuData:Item[]=[
   new Item('Static Data','pi pi-fw pi-plus', 'StaticData',
     [new SubItem('Customer','pi pi-fw pi-arrow-right','StaticData/Customer'),
+      new SubItem('Search Customer','pi pi-fw pi-arrow-right','StaticData/SearchCustomer'),
       new SubItem('Currency','pi pi-fw pi-arrow-right','StaticData/Currency'),
       new SubItem('Calendar','pi pi-fw pi-arrow-right','StaticData/Calendar'),
       new SubItem('Bank','pi pi-fw pi-arrow-right','StaticData/Bank')

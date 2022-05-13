@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationCancel, NavigationEnd, NavigationError,
-  NavigationStart, Router,Event} from "@angular/router";
+import {
+  NavigationCancel, NavigationEnd, NavigationError,
+  NavigationStart, Router, Event, ActivatedRoute
+} from "@angular/router";
 import {AuthService} from "./services/auth.service";
 import {filter, map, take} from "rxjs/operators";
 import {Observable, Observer} from "rxjs";
@@ -13,6 +15,7 @@ export class AppComponent  implements OnInit{
   logoPath:string;
   banner:string;
   isLogged:boolean;
+  customerId:any;
   private token_key:any;
   private auth_user:any;
   loading = true;
@@ -24,7 +27,7 @@ export class AppComponent  implements OnInit{
   readonly loading$: Observable<boolean> = this.router.events.pipe(
     map((event) => this.checkRouterEvent(event))
   );
-  constructor(private authService:AuthService,private router:Router) {
+  constructor(private authService:AuthService,private router:Router,private activeRouter:ActivatedRoute) {
     this.logoPath="../assets/images/logo.png";
     this.banner="../assets/images/banner.jpg";
     this.isLogged=false;
@@ -66,5 +69,6 @@ export class AppComponent  implements OnInit{
     console.log(status);
     return status;
   }
+
 
 }

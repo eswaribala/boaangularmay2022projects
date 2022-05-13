@@ -1,3 +1,20 @@
+<section class="search">
+<mat-form-field  class="mat-full-width">
+  <mat-placeholder>
+    <mat-icon>
+      search
+    </mat-icon>
+    Customer Search
+  </mat-placeholder>
+
+  <input matInput  [(ngModel)]="customerId"  #input>
+
+</mat-form-field>
+<div>
+  <button mat-raised-button (click)="applyFilter()">Search</button>
+</div>
+</section>
+
 <form [formGroup]="customerForm" (ngSubmit)="saveCustomer()" class="form">
   <fieldset>
     <legend>Customer Data Form</legend>

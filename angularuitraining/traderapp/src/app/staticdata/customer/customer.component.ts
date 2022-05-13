@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CountryService} from "../../services/country.service";
 import {CustomerService} from "../../services/customer.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer',
@@ -9,6 +10,9 @@ import {CustomerService} from "../../services/customer.service";
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+  customerId:number;
+
+
    firstName:FormControl;
    middleName:FormControl;
    lastName:FormControl;
@@ -18,8 +22,9 @@ export class CustomerComponent implements OnInit {
    isSuccess:boolean=false;
   constructor(private formBuilder:FormBuilder,
               private countryService:CountryService,
-              private customerService:CustomerService) {
-
+              private customerService:CustomerService,
+              private router:Router) {
+     this.customerId=0;
     this.firstName=new FormControl('',
       [Validators.required,Validators.pattern("[A-Za-z]{5,25}")]);
     this.middleName=new FormControl('',
@@ -67,5 +72,10 @@ export class CustomerComponent implements OnInit {
    },error=>{
      console.log(error);
    })
+  }
+
+  applyFilter() {
+
+    this.router.navigate(['Menu/StaticData/SearchCustomer/' + this.customerId]);
   }
 }

@@ -23,6 +23,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import { LoginComponent } from './login/login.component';
+import {SearchcustomerComponent} from "./staticdata/searchcustomer/searchcustomer.component";
+
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { LoginComponent } from './login/login.component';
     LiborComponent,
     ForexComponent,
     LogoutComponent,
-    LoginComponent
+    LoginComponent,
+    SearchcustomerComponent
   ],
   imports: [
     BrowserModule,

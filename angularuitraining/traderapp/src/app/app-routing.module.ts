@@ -12,6 +12,8 @@ import {ForexComponent} from "./marketdata/forex/forex.component";
 import {LogoutComponent} from "./logout/logout.component";
 import {LoginComponent} from "./login/login.component";
 import {MenuComponent} from "./menu/menu.component";
+import {SearchcustomerComponent} from "./staticdata/searchcustomer/searchcustomer.component";
+
 
 const routes: Routes = [
   {
@@ -30,6 +32,10 @@ const routes: Routes = [
         path:'Customer',
         component: CustomerComponent
       },
+        {
+          path:'SearchCustomer/:id',
+          component: SearchcustomerComponent
+        },
         {
           path:'Currency',
           component: CurrencyComponent

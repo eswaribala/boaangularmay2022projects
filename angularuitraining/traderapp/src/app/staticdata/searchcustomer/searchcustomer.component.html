@@ -1,0 +1,17 @@
+<Section *ngIf="customerData.country?.length>0">
+  <table>
+    <thead>
+    <tr>
+
+      <td>First Name</td>
+      <td>Last Name</td>
+      <td>Country</td>
+    </tr>
+    </thead>
+    <tr>
+      <td>{{customerData.name.firstName}}</td>
+      <td>{{customerData.name.lastName}}</td>
+      <td>{{customerData.country}}</td>
+    </tr>
+  </table>
+</Section>
